@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CounterSide", "CounterSide\CounterSide.csproj", "{B7358067-4165-41C2-BD7B-7C4D535090BD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7358067-4165-41C2-BD7B-7C4D535090BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7358067-4165-41C2-BD7B-7C4D535090BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7358067-4165-41C2-BD7B-7C4D535090BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7358067-4165-41C2-BD7B-7C4D535090BD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2945652B-617F-4A67-862A-AECCF5ABED90}
+	EndGlobalSection
+EndGlobal
