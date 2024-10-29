@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Specialized;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -344,21 +343,29 @@ namespace CounterSide
     {
         static void Main(string[] args)
         {
-            // Put files (ex: StreamingAssets) in to CounterSide folder and execute this program to decrypt
+            string Root = Environment.CurrentDirectory;
+
+            // Put files and folders (ex: StreamingAssets) in to CounterSide folder and execute this program to decrypt
             DirectoryInfo AssetFolder = new DirectoryInfo("CounterSide");
-            if(Directory.Exists(AssetFolder.FullName + "/dec") == false)
+            if (!Directory.Exists(Root + "/dec"))
             {
-                Directory.CreateDirectory(AssetFolder.FullName + "/dec");
+                Directory.CreateDirectory(Root + "/dec");
             }
 
             string[] extensions = new[] { ".asset", ".vkor", ".vjpn" };
-            foreach (FileInfo file in AssetFolder.GetFiles().Where(f => extensions.Contains(f.Extension.ToLower())))
+            foreach (FileInfo file in AssetFolder.GetFiles("*.*", SearchOption.AllDirectories).Where(f => extensions.Contains(f.Extension.ToLower())))
             {
                 Console.WriteLine("Decrypting: " + file.FullName);
                 var decryptor = new BetterStreamingAssets.NKCAssetbundleInnerStream(file.FullName);
                 byte[] dec = new byte[decryptor.Length];
                 decryptor.Read(dec, 0, (int)decryptor.Length);
-                File.WriteAllBytes(AssetFolder.FullName + "/dec/" + file.Name, dec);
+
+                string newfile = Root + "/dec" + file.FullName.Replace(AssetFolder.FullName, String.Empty);
+                if(!Directory.Exists(Path.GetDirectoryName(newfile)))
+                {
+                    Directory.CreateDirectory(Path.GetDirectoryName(newfile));
+                }
+                File.WriteAllBytes(newfile, dec);
             }
         }
     }
