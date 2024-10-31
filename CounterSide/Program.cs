@@ -352,7 +352,7 @@ namespace CounterSide
                 Directory.CreateDirectory(Root + "/dec");
             }
 
-            string[] extensions = new[] { ".asset", ".vkor", ".vjpn" };
+            string[] extensions = new[] { ".asset", ".vkor", ".vjpn", ".twn", ".gbtwn" };
             foreach (FileInfo file in AssetFolder.GetFiles("*.*", SearchOption.AllDirectories).Where(f => extensions.Contains(f.Extension.ToLower())))
             {
                 Console.WriteLine("Decrypting: " + file.FullName);
